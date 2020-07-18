@@ -1,0 +1,17 @@
+{
+  "name": "nanos",
+  "version": "1.0.0",
+  "description": "test for noaos",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --exit --reporter spec \"src/*/*.test.js\""
+  },
+  "author": "Ivan Sanchez",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "express": "^4.17.1",
+    "mocha": "^7.1.0",
+    "mongoose": "^5.9.3"
+  }
+}

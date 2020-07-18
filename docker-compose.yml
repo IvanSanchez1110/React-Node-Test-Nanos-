@@ -1,0 +1,36 @@
+version: "3"
+services:
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./server:/server
+      - /server/node_modules
+    depends_on:
+      - "mongo"
+
+  client:
+    container_name: client
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/client
+      - /client/node_modules
+    depends_on:
+      - server
+  # adminmongo:
+  #   image: "mrvautin/adminmongo"
+  #   ports:
+  #     - "1234:1234"
+  #   environment:
+  #     - HOST=0.0.0.0
